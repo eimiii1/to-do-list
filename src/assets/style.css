@@ -1,0 +1,215 @@
+:root {
+    --box: 0 10px 40px rgba(0, 0, 0, 0.2)
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(248, 248, 231);
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.navigation-bar {
+    /* box-shadow: var(--box); */
+    min-height: 6em;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    column-gap: 30em;
+    top: 0;
+}
+
+.header-title {
+    font-family: Montserrat;
+    text-shadow: var(--box);
+}
+
+.nav-list {
+    display: flex;
+    column-gap: 4em;
+}
+
+.nav-list li {
+    list-style-type: none;
+}
+
+.nav-list li a {
+    text-decoration: none;
+    color: black;
+    font-family: "Montserrat";
+    font-optical-sizing: auto;
+    font-weight: 600;
+}
+
+.nav-list li a.active {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.login-button {
+    background-color: black;
+    color: white;
+    padding: 0.9em;
+    font-family: Montserrat;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    width: 10em;
+    cursor: pointer;
+}
+
+
+/* home page */
+.home-page {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.home-title-div {
+    width: 60em;
+    text-align: center;
+}
+
+.home-title-div h1 {
+    font-size: 5rem;
+    font-family: "Montserrat";
+    text-shadow: var(--box);
+    font-weight: 600;
+}
+
+.home-title-div p {
+    font-size: 1rem;
+    font-family: Montserrat;
+    text-shadow: var(--box);
+    font-weight: 600;
+}
+
+#get-started-button {
+    height: 5em;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2em;
+    color: white;
+    background-color: black;
+    font-family: Montserrat;
+    font-weight: 600;
+    border: none;
+    border-radius: 60px;
+    box-shadow: var(--box);
+    cursor: pointer;
+}
+
+.menu-page {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-page-content {
+    /* box-shadow: var(--box); */
+    display: flex;
+    justify-content: center;
+    column-gap: 2em;
+    grid-template-columns: repeat(3, 45em);
+    grid-template-rows: repeat(1, 50px);
+    width: 120em;
+    height: 51em;
+    position: relative;
+    top: 4em;
+    background: rgb(248, 248, 234);
+}
+
+.menu-page-content .menu-item {
+    width: 28em;
+    height: 40em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1em;
+    position: relative;
+    top: 5em;
+    border-radius: 5px;
+    border: 2px solid rgb(248, 248, 234);
+    background-color: rgb(248, 248, 234);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.menu-page-content .menu-item h2 {
+    font-family: Montserrat;
+    font-weight: 1000;
+    font-size: 1.2rem;
+    width: 25rem;
+    position: relative;
+    top: 12em;
+    text-align: left;
+}
+
+.menu-page-content .menu-item p {
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 0.9rem;
+    width: 25rem;
+    position: relative;
+    top: 15em;
+    text-align: left;
+}
+
+#fish-burger,
+#bacon-burger,
+#beef-burger {
+    position: absolute;
+    top: 3em;
+}
+
+#fish-burger {
+    max-width: 25rem;
+    scale: 0.9
+}
+
+#bacon-burger {
+    max-width: 19.5rem;
+}
+
+#beef-burger {
+    max-width: 28rem;
+}
+
+.contact-page {
+    display: flex;
+    min-height: 50em;
+    min-width: 10em;
+    flex-direction: column;
+    position: relative;
+    top: 2em;
+}
+
+.contact-page h1 {
+    font-family: Montserrat;
+    font-size: 3rem;
+}
+
+.contact-page pre {
+    font-family: Montserrat;
+    font-size: 1rem;
+    font-weight: 600;
+}
