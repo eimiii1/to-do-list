@@ -1,0 +1,555 @@
+@import url("https://fonts.cdnfonts.com/css/sf-pro-display");
+@import url("https://fonts.cdnfonts.com/css/graphik-trial");
+
+:root {
+  --box: 0 10px 40px rgba(0, 0, 0, 0.2);
+  --sidebar-width: 20em;
+}
+
+body {
+  margin: 0;
+  font-family: "SF Pro Display";
+  position: relative;
+  overflow: hidden;
+}
+
+#content {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.side-bar {
+  background-color: #202020;
+  height: 100vh;
+  width: var(--sidebar-width);
+  padding: 2em;
+  position: absolute;
+  left: 0;
+  transition: 0.3s ease-in-out;
+  transform: translateX(0);
+}
+
+.table-bar {
+  flex: 1;
+  height: 100vh;
+  transition: 0.3s ease-in-out;
+  background-color: rgb(247, 242, 242);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#content.sidebar-closed .side-bar {
+  transform: translateX(-100%);
+}
+
+#content.sidebar-closed .table-bar {
+  width: 100%;
+}
+
+#content.sidebar-closed #split-img {
+  transform: translateX(5em);
+}
+
+#split-img {
+  position: absolute;
+  right: 0;
+  transition: 0.3s ease-in-out;
+  z-index: 100;
+  height: 1.6em;
+  opacity: 0.8;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 10em;
+  position: relative;
+  z-index: 100;
+}
+
+.username {
+  font-size: 1rem;
+  color: white;
+  position: relative;
+  text-shadow: var(--box);
+}
+
+.options {
+  position: relative;
+  top: 2em;
+}
+
+.options .option-button {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  cursor: pointer;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  transition: 0.05s ease-in-out;
+  user-select: none;
+}
+
+.options .option-button:hover {
+  background-color: #1d1d1d;
+}
+
+.options .option-button:active {
+  scale: 0.95;
+}
+
+.option-button img {
+  min-height: 1rem;
+}
+
+.option-button h1 {
+  font-size: 1rem;
+  font-weight: 100;
+  text-shadow: var(--box);
+  color: white;
+}
+
+.projects-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 3em;
+  flex-direction: column;
+}
+
+.project-tabs {
+  background-color: #202020;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 5em;
+  width: 15em;
+}
+
+.project-tabs h1 {
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 100;
+}
+
+.project-tabs img {
+  height: 0.8rem;
+  padding: 5px 10px 5px 10px;
+  border-radius: 5px;
+  transform: rotateZ(0deg);
+  transition: 0.4s;
+}
+
+.project-tabs img.active {
+  transform: rotateZ(90deg);
+}
+
+.project-dropdown {
+  width: 15em;
+  overflow: auto;
+  transition: 0.4s;
+  height: 45em;
+}
+
+.project-dropdown ul li {
+  color: white;
+  font-weight: 600;
+  text-shadow: var(--box);
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 0.5em;
+  position: relative;
+  right: 2.5em;
+  padding: 0.5em;
+  cursor: default;
+  border-radius: 10px;
+}
+
+.project-dropdown ul li:hover {
+  background-color: #1d1d1d;
+}
+
+.project-dropdown ul li img:nth-child(2) {
+  scale: 1.4;
+}
+
+.project-dropdown ul li img:nth-child(2):hover {
+  cursor: pointer;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-list img {
+  height: 0.9rem;
+}
+
+.add-task {
+  position: absolute;
+}
+
+.add-pop-up {
+  background-color: rgb(247, 242, 242);
+  height: 15em;
+  width: 30em;
+  position: absolute;
+  z-index: 100;
+  top: 10%;
+  right: 27%;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: 0.2s;
+  scale: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  column-gap: 50em;
+}
+
+.add-pop-up.show {
+  scale: 1;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.inputs input {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-family: SF Pro Display;
+  color: rgb(100, 100, 100);
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.input-title {
+  padding: 10px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: block;
+}
+
+.inputs input:nth-child(2) {
+  padding: 10px;
+}
+
+.input-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-date {
+  /* background-color: black; */
+  padding: 10px;
+  font-size: 0.85rem;
+  position: relative;
+  width: 50%;
+  height: 0.75em;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: black;
+  display: none;
+}
+
+.input-date.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-buttons {
+  display: flex;
+  left: 0.5em;
+  bottom: 2em;
+  position: relative;
+  column-gap: 0.5em;
+}
+
+.input-buttons button {
+  padding: 5px;
+  color: rgb(100, 100, 100);
+  border: 1px solid rgb(200, 200, 200);
+  background-color: rgb(247, 242, 242);
+  border-radius: 5px;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  position: relative;
+}
+
+.input-buttons button:hover {
+  background-color: rgb(236, 233, 233);
+}
+
+.calendar {
+  background-color: rgb(247, 242, 242);
+  width: 100%;
+  position: absolute;
+  z-index: 100;
+  left: 0;
+  top: 1.7em;
+  border-radius: 10px;
+  border: 1px solid rgb(200, 200, 200);
+  display: none;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  padding: 10px;
+}
+
+.calendar.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.calendar .calendar-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 5em;
+  border-bottom: 1px solid rgb(200, 200, 200);
+}
+
+.calendar .calendar-header h2 {
+  font-size: 1rem;
+}
+
+.calendar .days-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  column-gap: 3.55em;
+}
+
+.calendar .days-container p {
+  font-weight: 1000;
+}
+
+.calendar .days-container p:nth-child(1) {
+  color: rgb(209, 41, 41);
+}
+
+.calendar .dates-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  place-items: center;
+}
+
+.each-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  height: 20px;
+  width: 20px;
+  padding: 10px;
+  border: 1px solid rgb(247, 242, 242);
+}
+.calendar .dates-container .each-date.inactive {
+  color: rgb(100, 100, 100);
+}
+
+.calendar .dates-container .each-date.today {
+  background-color: #1d1d1d;
+  color: white;
+  font-weight: 1000;
+}
+
+.calendar .dates-container .each-date.selected {
+  border: 1px solid #1d1d1d;
+}
+
+.priority-div {
+  position: relative;
+}
+
+/* Priority style */
+.priority {
+  display: none;
+  width: 7.5em;
+  border-radius: 5px;
+  position: absolute;
+  border: 1px solid rgb(200, 200, 200);
+  background-color: rgb(247, 242, 242);
+  user-select: none;
+  overflow: hidden;
+}
+
+.priority.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.priority .priority-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: SF Pro Display;
+  height: 2em;
+  column-gap: 1em;
+  padding: 5px 10px 5px 10px;
+}
+
+.priority .priority-container .prio-description {
+  color: rgb(100, 100, 100);
+  font-weight: 100;
+}
+
+.priority .priority-container:hover {
+  background-color: rgb(200, 200, 200);
+}
+
+/* buttons */
+.buttons-container {
+  display: flex;
+  padding: 10px;
+  column-gap: 1em;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 0.5em;
+  right: 0.5em;
+}
+
+.buttons-container button {
+  padding: 5px;
+  width: 10em;
+  font-weight: 1000;
+  font-family: SF Pro Display;
+  border: 1px solid rgb(200, 200, 200);
+  outline: none;
+  border-radius: 7px;
+  background-color: transparent;
+  color: rgb(100, 100, 100);
+  text-shadow: var(--box);
+}
+
+.buttons-container button:active {
+  background-color: rgb(231, 229, 229);
+}
+
+.buttons-container button:nth-child(2) {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Table */
+.table-bar {
+  display: flex;
+}
+
+.table-bar .table {
+  min-height: 100vh;
+  width: 50em;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: relative;
+  flex-direction: column;
+  left: 12.5em;
+  padding-left: 5em;
+  padding-top: 5em;
+  row-gap: 1em;
+}
+
+.table-bar .table h1 {
+  color: #1d1d1d;
+}
+
+.table-bar .table .add-task-container {
+  position: relative;
+  bottom: 1.5em;
+  color: rgb(100, 100, 100);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 0.5em;
+  user-select: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: 0.2s;
+  width: 7.5em;
+}
+
+.table-bar .table .add-task-container:hover {
+  border-bottom: 2px solid rgb(100, 100, 100);
+  width: 7.5em;
+}
+
+.add-task-container .add-task-input {
+  border: 1px solid;
+}
+
+.description-contents {
+  width: 90%;
+  text-shadow: var(--box);
+  display: flex;
+  flex-direction: column;
+  row-gap: 2em;
+}
+
+.description-contents .task-container {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgb(100, 100, 100);
+  padding-bottom: 10px;
+}
+
+.task-container .task-header {
+  font-weight: 1000;
+  font-size: 1.05rem;
+}
+
+.task-container p {
+  margin: 0;
+}
+
+.task-container .task-name {
+  display: flex;
+  column-gap: 0.5em;
+  position: relative;
+}
+
+.task-container .task-name .completed-btn {
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 8px;
+  background-color: #1d1d1d;
+  color: white;
+  scale: 0.8;
+  font-family: SF Pro Display;
+  font-weight: 1000;
+  padding: 3px;
+  width: 10em;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.task-container .task-name .completed-btn:active {
+  transform: translateY(2px); 
+}
+
+.task-container .task-note {
+  color: rgb(100, 100, 100);
+  font-size: 0.75em;
+}     
